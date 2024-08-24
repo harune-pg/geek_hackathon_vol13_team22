@@ -85,10 +85,11 @@ while True:
                     entry_exit_state[name] = "exited"
 
             # フレームの右端に見切れた場合、入室を判定
-            elif right > frame_width - 50:  # 右端に顔の「right」座標が見切れたとき
+            elif right * 4 > frame_width - 50:  # 右端に顔の「right」座標が見切れたとき
                 if entry_exit_state.get(name) != "entered":
                     print(f"{name} 入室")
                     entry_exit_state[name] = "entered"
+
             
             # 顔が検知された時間を更新
             last_seen_time[name] = current_time
